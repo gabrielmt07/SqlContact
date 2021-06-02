@@ -1,6 +1,6 @@
 using System;
 
-namespace SC.API
+namespace Api.Domain
 {
     public class WeatherForecast
     {
