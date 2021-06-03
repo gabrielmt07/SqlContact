@@ -8,6 +8,7 @@ namespace Api.Data.Interfaces
         List<Aluno> Get();
         Aluno GetById(int id);
         void Add(Aluno aluno);
+        void AddAll(List<Aluno> alunos);
         void Atualizar(Aluno aluno);
         void Delete(int id);
     }

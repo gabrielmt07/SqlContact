@@ -1,6 +1,7 @@
 using Api.Data;
 using Api.Data.Imp;
 using Api.Data.Interfaces;
+using ExcelReader;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -34,6 +35,7 @@ namespace SC.API
             });
 
             services.AddScoped<IAlunoRepository, AlunoRepository>();
+            services.AddScoped<IExcelReader, PlanReader>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

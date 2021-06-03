@@ -1,4 +1,5 @@
 ﻿using Api.Data.Interfaces;
+using ExcelReader;
 using Microsoft.AspNetCore.Mvc;
 using SC.API.Domain;
 
@@ -9,17 +10,19 @@ namespace SC.API.Controllers
     public class AlunoController : ControllerBase
     {
         private readonly IAlunoRepository _repository;
+        private readonly IExcelReader _excelReader;
 
-        public AlunoController(IAlunoRepository repository)
+        public AlunoController(IAlunoRepository repository,
+                               IExcelReader excelReader)
         {
             _repository = repository;
+            _excelReader = excelReader;
         }
 
         [HttpGet]
         public ActionResult Get()
         {
             var alunos = _repository.Get();
-
             return Ok(alunos);
         }
 
@@ -30,10 +33,17 @@ namespace SC.API.Controllers
             return Ok(aluno);
         }
 
+        //[HttpPost]
+        //public ActionResult Post(Aluno aluno)
+        //{
+        //    _repository.Add(aluno);
+        //    return StatusCode(201);
+        //}
+
         [HttpPost]
-        public ActionResult Post(Aluno aluno)
+        public ActionResult Post()
         {
-            _repository.Add(aluno);
+            _repository.AddAll(_excelReader.LerExcel());
             return StatusCode(201);
         }
 

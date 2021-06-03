@@ -30,6 +30,16 @@ namespace Api.Data.Imp
             _db.SaveChanges();
         }
 
+        public void AddAll(List<Aluno> alunos)
+        {
+            var count = alunos.Count();
+            for (int i=0; i<count; i++)
+            {
+                _db.Add(alunos[i]);
+                _db.SaveChanges();
+            }
+        }
+
         public void Atualizar(Aluno aluno)
         {
             _db.Update(aluno);

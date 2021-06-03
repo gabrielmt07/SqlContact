@@ -9,6 +9,12 @@ namespace SC.API.Domain
 {
     public class Aluno
     {
+        public Aluno(DateTime dataCadastroAluno, string loginCadastroAluno)
+        {
+            DataCadastroAluno = dataCadastroAluno;
+            LoginCadastroAluno = loginCadastroAluno;
+        }
+
         [Key]
         [Column("id_aluno")]
         public int IdAluno { get; set; }
