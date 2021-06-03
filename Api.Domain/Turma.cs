@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using Xunit;
 
 namespace SC.API.Domain
 {
-    public class Presenca
+    public class Turma
     {
+        [Key]
         public int IdTurma { get; set; }
 
         public int IdAluno { get; set; }
@@ -20,8 +21,9 @@ namespace SC.API.Domain
         public DateTime DataTermino { get; set; }
 
         [Required(ErrorMessage = "{0} é necessário!")]
-        public DateTime DataCadastroCurso { get; set; }
+        public DateTime DataCadastroTurma { get; set; }
 
-        public string LoginCadastroCurso { get; set; }
+        [Required(ErrorMessage = "{0} é necessário!")]
+        public string LoginCadastroTurma { get; set; }
     }
 }
